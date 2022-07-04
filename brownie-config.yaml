@@ -1,0 +1,16 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.7.0
+reports:
+  exclude_contracts:
+    - ERC721
+compiler:
+  solc:
+    remappings:
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.7.0'
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+# networks:
+  # development:
+  # polygon-test:
+
