@@ -2,8 +2,6 @@ from brownie import accounts, network, config
 from web3 import Web3
 
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["hardhat", "development", "ganache", "mainnet-fork"]
-OPENSEA_URL = "https://testnets.opensea.io/assets/mumbai/{}/{}"
-
 
 
 def get_account(index=None, id=None):

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.1;
 
+// https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
@@ -12,6 +13,7 @@ contract PyConNFT is ERC721URIStorage {
     constructor() public ERC721("PyConNFT", "PyCon") {
         minter = msg.sender;
         tokenCounter = 0;
+        contractURI = "";
     }
 
     function mint(address to, string memory tokenURI) public returns (uint256) {

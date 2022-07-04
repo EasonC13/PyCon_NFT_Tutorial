@@ -70,7 +70,8 @@ ownerToOperators: HashMap[address, HashMap[address, bool]]
 # @dev Address of minter, who can mint a token
 minter: address
 
-baseURL: String[53]
+contractURI: public(String[53])
+tokenIdToURI: HashMap[uint256, String[53]]
 
 tokenCounter: public(uint256)
 
@@ -88,8 +89,8 @@ def __init__():
     @dev Contract constructor.
     """
     self.minter = msg.sender
-    self.baseURL = "https://api.babby.xyz/metadata/"
     self.tokenCounter = 0
+    # self.contractURI = 'ipfs://QmVNpHExvWPkap8k8FLcsswFPMT2iBwjPKzUtDkjmLzWLS'
 
 
 @pure
@@ -328,7 +329,7 @@ def setApprovalForAll(_operator: address, _approved: bool):
 ### MINT & BURN FUNCTIONS ###
 
 @external
-def mint(_to: address, uri: String[100]) -> bool:
+def mint(_to: address, uri: String[53]) -> bool:
     """
     @dev Function to mint tokens
          Throws if `msg.sender` is not the minter.
@@ -344,6 +345,7 @@ def mint(_to: address, uri: String[100]) -> bool:
     # Add NFT. Throws if `_tokenId` is owned by someone
     self._addTokenTo(_to, self.tokenCounter)
     log Transfer(ZERO_ADDRESS, _to, self.tokenCounter)
+    self.tokenIdToURI[self.tokenCounter] = uri
     self.tokenCounter += 1
     return True
 
@@ -370,5 +372,5 @@ def burn(_tokenId: uint256):
 @view
 @external
 def tokenURI(tokenId: uint256) -> String[132]:
-    return concat(self.baseURL, self.baseURL)
+    return self.tokenIdToURI[tokenId]
 
