@@ -84,13 +84,13 @@ SUPPORTED_INTERFACES: constant(bytes4[2]) = [
 ]
 
 @external
-def __init__():
+def __init__(uri: String[53]):
     """
     @dev Contract constructor.
     """
     self.minter = msg.sender
     self.tokenCounter = 0
-    # self.contractURI = 'ipfs://QmVNpHExvWPkap8k8FLcsswFPMT2iBwjPKzUtDkjmLzWLS'
+    self.contractURI = uri
 
 
 @pure

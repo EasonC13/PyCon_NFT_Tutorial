@@ -5,10 +5,10 @@ from brownie import VyperPyConNFT, PyConNFT, network, config
 
 def mint(ERC721, account):
     URIs = [
-        'ipfs://QmXmnahgjkeaUerkF4fQyDopPni7NxNCkg1kjX4j9eLEzn',
-        'ipfs://QmW1GUzNXePoxxPUr5cvGPGUPRUHL5cqDWMXVgW92meXUu',
-        'ipfs://QmcNG8nrELwXQA97yWAcx5qdT6RA7wYctUL3Psh9G58yEc',
-        'ipfs://QmcaFWN3UDRkwvbku6qZAiPymoo7uqTyp9JM42M6mhKt6m',
+        'ipfs://QmbQWXNLcuVnpx4GAMQhg1hPCnz4PHVbinuwUy8EDKF1ak',
+        'ipfs://QmSCUJcYsYxXe4WZ8WNpwYyYDdht18hCb1oEnimXqVWZMu',
+        'ipfs://QmZsVZfzUGDTpaxGUioRXa8mytFsYzPBqbgmxy7qmBCR76',
+        'ipfs://QmfMBXbB5T1Aa4M9tFNJEKhz3iYh7M9DFWiFnLeZfqqu3h',
     ]
     for uri in URIs:
         tx = ERC721.mint(account.address, uri, {"from": account})

@@ -10,10 +10,10 @@ contract PyConNFT is ERC721URIStorage {
     address public minter;
     string public contractURI;
 
-    constructor() public ERC721("PyConNFT", "PyCon") {
+    constructor(string memory uri) public ERC721("PyConNFT", "PyCon") {
         minter = msg.sender;
         tokenCounter = 0;
-        contractURI = "";
+        contractURI = uri;
     }
 
     function mint(address to, string memory tokenURI) public returns (uint256) {

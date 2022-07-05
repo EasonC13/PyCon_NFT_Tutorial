@@ -9,6 +9,7 @@ def deploy_Solidity_ERC721(account):
     # Otherwise, we want to deploy some mocks and use those
     # Rinkeby
     ERC721 = PyConNFT.deploy(
+        "",
         {"from": account}
     )
     print(f"New ERC721 has been deployed at {ERC721.address}")
