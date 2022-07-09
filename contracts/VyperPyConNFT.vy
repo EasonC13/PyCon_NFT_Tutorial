@@ -368,6 +368,11 @@ def burn(_tokenId: uint256):
     self._removeTokenFrom(owner, _tokenId)
     log Transfer(owner, ZERO_ADDRESS, _tokenId)
 
+@external
+def setContractURI(uri: String[53]) -> bool:
+    assert msg.sender == self.minter
+    self.contractURI = uri
+    return True
 
 @view
 @external

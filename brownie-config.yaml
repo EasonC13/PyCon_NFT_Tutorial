@@ -10,7 +10,16 @@ compiler:
 dotenv: .env
 wallets:
   from_key: ${PRIVATE_KEY}
-# networks:
-  # development:
-  # polygon-test:
-
+networks:
+  mainnet:
+      host: https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+  goerli:
+      host: https://goerli.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+  kovan:
+      host: https://kovan.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+  rinkeby:
+      host: https://rinkeby.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+  polygon-test:
+      host: https://polygon-mumbai.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+  polygon:
+      host: https://polygon.infura.io/v3/$WEB3_INFURA_PROJECT_ID
