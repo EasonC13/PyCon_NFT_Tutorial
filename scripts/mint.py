@@ -3,14 +3,15 @@ from scripts.helpful_scripts import (
 )
 from brownie import VyperPyConNFT, PyConNFT, network, config
 
+URIs = [
+    "ipfs://QmbQWXNLcuVnpx4GAMQhg1hPCnz4PHVbinuwUy8EDKF1ak",
+    "ipfs://QmSCUJcYsYxXe4WZ8WNpwYyYDdht18hCb1oEnimXqVWZMu",
+    "ipfs://QmZsVZfzUGDTpaxGUioRXa8mytFsYzPBqbgmxy7qmBCR76",
+    "ipfs://QmfMBXbB5T1Aa4M9tFNJEKhz3iYh7M9DFWiFnLeZfqqu3h",
+]
+
 
 def mint(ERC721, account):
-    URIs = [
-        "ipfs://QmbQWXNLcuVnpx4GAMQhg1hPCnz4PHVbinuwUy8EDKF1ak",
-        "ipfs://QmSCUJcYsYxXe4WZ8WNpwYyYDdht18hCb1oEnimXqVWZMu",
-        "ipfs://QmZsVZfzUGDTpaxGUioRXa8mytFsYzPBqbgmxy7qmBCR76",
-        "ipfs://QmfMBXbB5T1Aa4M9tFNJEKhz3iYh7M9DFWiFnLeZfqqu3h",
-    ]
     for uri in URIs:
         tx = ERC721.mint(account.address, uri, {"from": account})
         tx.wait(1)
