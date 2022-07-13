@@ -4,18 +4,14 @@ from scripts.helpful_scripts import (
 from brownie import VyperPyConNFT, PyConNFT, network, config
 from scripts.mint import mint
 
+
 def deploy_Solidity_ERC721(account):
-    # We want to be able to use the deployed contracts if we are on a testnet
-    # Otherwise, we want to deploy some mocks and use those
-    # Rinkeby
     ERC721 = PyConNFT.deploy(
-        "",
-        {"from": account}
+        "ipfs://QmVNpHExvWPkap8k8FLcsswFPMT2iBwjPKzUtDkjmLzWLS", {"from": account}
     )
     print(f"New ERC721 has been deployed at {ERC721.address}")
 
     return ERC721
-    
 
 
 def main():
